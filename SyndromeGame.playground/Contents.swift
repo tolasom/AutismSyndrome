@@ -5,11 +5,13 @@ import PlaygroundSupport
 
 class MyViewController : UIViewController {
     var counter = 0
-    var questionLabel : UILabel!
+   
     var counterLabel : UILabel!
-    var button : UIButton!
-    var starButton : UIButton!
+//    var button : UIButton!
+//    var starButton : UIButton!
 
+    var backButton : UIButton!
+    var questionLabel : UILabel!
     var firstButton : UIButton!
     var secondButton : UIButton!
     var thirdButton : UIButton!
@@ -20,8 +22,7 @@ class MyViewController : UIViewController {
     var eighthButton : UIButton!
     var ninethButton : UIButton!
     var plusButton : UIButton!
-    
-    var firstView : UIView!
+
     var firstLabel : UILabel!
     var secondLabel : UILabel!
     var thirdLabel : UILabel!
@@ -32,12 +33,15 @@ class MyViewController : UIViewController {
     var eightLabel : UILabel!
     var ninethLabel : UILabel!
 
+    var firstInputView : UIView!
+    var secondInputView : UIView!
     override func loadView() {
         // UI
         let view = UIView()
         view.backgroundColor = .white
         
         counterLabel = UILabel()
+        backButton = UIButton()
         firstLabel = UILabel()
         secondLabel = UILabel()
         thirdLabel = UILabel()
@@ -51,29 +55,38 @@ class MyViewController : UIViewController {
         questionLabel = UILabel()
         questionLabel.text = "Given additional number equal to : 10"
         
-        button = UIButton(type: .system)
-        button.setTitle("Click Here", for: .normal)
-        button.tintColor = .orange
-        button.addTarget(self, action: #selector(updateView), for: .touchUpInside)
+        firstInputView = UIView()
+        firstInputView.backgroundColor = .lightGray
+        view.addSubview(firstInputView)
+        
+        secondInputView = UIView()
+        secondInputView.backgroundColor = .lightGray
+        view.addSubview(secondInputView)
+        
+//        button = UIButton(type: .system)
+//        button.setTitle("Click Here", for: .normal)
+//        button.tintColor = .orange
+//        button.addTarget(self, action: #selector(updateView), for: .touchUpInside)
 
-        plusButton = UIButton(type: .system)
-        plusButton.setImage(UIImage(named: "plusBtn.png"), for: .normal)
-        plusButton.addTarget(self, action: #selector(toggleStarred), for: .touchUpInside)
+//        plusButton = UIButton(type: .system)
+//        plusButton.setImage(UIImage(named: "plusBtn.png"), for: .normal)
+//        plusButton.addTarget(self, action: #selector(toggleStarred), for: .touchUpInside)
         
         
-        starButton = UIButton(type: .system)
-        starButton.setImage(UIImage(named: "star"), for: .normal)
-        starButton.addTarget(self, action: #selector(toggleStarred), for: .touchUpInside)
+//        starButton = UIButton(type: .system)
+//        starButton.setImage(UIImage(named: "star"), for: .normal)
+//        starButton.addTarget(self, action: #selector(toggleStarred), for: .touchUpInside)
         
-        plusButton = UIButton(type: .system)
-        plusButton.setImage(UIImage(named: "plusBtn.png"), for: .normal)
-        plusButton.addTarget(self, action: #selector(toggleStarred), for: .touchUpInside)
+//        plusButton = UIButton(type: .system)
+//        plusButton.setImage(UIImage(named: "plusBtn.png"), for: .normal)
+//        plusButton.addTarget(self, action: #selector(toggleStarred), for: .touchUpInside)
+        
+        backButton = UIButton(type: .system)
+        backButton.setBackgroundImage(UIImage(named: "backButton.png"), for: .normal)
         
         firstButton = UIButton(type: .system)
         firstButton.setBackgroundImage(UIImage(named: "1.png"), for: .normal)
-//        firstButton.setImage(UIImage(named: "1.png"), for: .normal)
         firstButton.addTarget(self, action: #selector(updateFirstView), for: .touchUpInside)
-        
 
         secondButton = UIButton(type: .system)
         secondButton.setBackgroundImage(UIImage(named: "2.png"), for: .normal)
@@ -108,30 +121,33 @@ class MyViewController : UIViewController {
         ninethButton.addTarget(self, action: #selector(updateNinethView), for: .touchUpInside)
 
 
-            view.addSubview(counterLabel)
-            view.addSubview(button)
-            view.addSubview(starButton)
-            view.addSubview(questionLabel)
+        view.addSubview(counterLabel)
+//            view.addSubview(button)
+//            view.addSubview(starButton)
+        view.addSubview(backButton)
+        view.addSubview(questionLabel)
 
-            view.addSubview(firstButton)
-            view.addSubview(secondButton)
-            view.addSubview(thirdButton)
-            view.addSubview(fouthButton)
-            view.addSubview(fifthButton)
-            view.addSubview(sixthButton)
-            view.addSubview(seventhButton)
-            view.addSubview(eighthButton)
-            view.addSubview(ninethButton)
+        view.addSubview(firstButton)
+        view.addSubview(secondButton)
+        view.addSubview(thirdButton)
+        view.addSubview(fouthButton)
+        view.addSubview(fifthButton)
+        view.addSubview(sixthButton)
+        view.addSubview(seventhButton)
+        view.addSubview(eighthButton)
+        view.addSubview(ninethButton)
+    
+
+        view.addSubview(firstLabel)
         
-//            view.addSubview(firstView)
-            view.addSubview(firstLabel)
-//            view.addSubview(secondLabel)
-        // Layout
 
+       
+        // Layout
+        backButton.translatesAutoresizingMaskIntoConstraints = false
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
         counterLabel.translatesAutoresizingMaskIntoConstraints = false
-        button.translatesAutoresizingMaskIntoConstraints = false
-        starButton.translatesAutoresizingMaskIntoConstraints = false
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        starButton.translatesAutoresizingMaskIntoConstraints = false
        
         //button number
         firstButton.translatesAutoresizingMaskIntoConstraints = false
@@ -144,27 +160,44 @@ class MyViewController : UIViewController {
         eighthButton.translatesAutoresizingMaskIntoConstraints = false
         ninethButton.translatesAutoresizingMaskIntoConstraints = false
 
-//        firstView.translatesAutoresizingMaskIntoConstraints = false
         firstLabel.translatesAutoresizingMaskIntoConstraints = false
         secondLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        firstInputView.translatesAutoresizingMaskIntoConstraints = false
+        secondInputView.translatesAutoresizingMaskIntoConstraints = false
         
         
 
         NSLayoutConstraint.activate([
-            questionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
-            questionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        
+            questionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            questionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            
+            firstInputView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
+            firstInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
+            firstInputView.heightAnchor.constraint(equalToConstant: 120),
+            firstInputView.widthAnchor.constraint(equalToConstant: 120),
+            
+            secondInputView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
+            secondInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 210),
+            secondInputView.heightAnchor.constraint(equalToConstant: 120),
+            secondInputView.widthAnchor.constraint(equalToConstant: 120),
+            
+            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            backButton.widthAnchor.constraint(equalToConstant: 70),
+            backButton.heightAnchor.constraint(equalToConstant: 40),
+        
+            counterLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
+            counterLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 300),
 
-            counterLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            counterLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-
-            button.leadingAnchor.constraint(equalTo: counterLabel.trailingAnchor, constant: 20),
-            button.firstBaselineAnchor.constraint(equalTo: counterLabel.firstBaselineAnchor),
-
-            starButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            starButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            starButton.widthAnchor.constraint(equalToConstant: 20),
-            starButton.heightAnchor.constraint(equalToConstant: 20),
+//            button.leadingAnchor.constraint(equalTo: counterLabel.trailingAnchor, constant: 20),
+//            button.firstBaselineAnchor.constraint(equalTo: counterLabel.firstBaselineAnchor),
+//
+//            starButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+//            starButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+//            starButton.widthAnchor.constraint(equalToConstant: 20),
+//            starButton.heightAnchor.constraint(equalToConstant: 20),
             
             firstButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 500),
             firstButton.widthAnchor.constraint(equalToConstant: 50),
@@ -212,61 +245,32 @@ class MyViewController : UIViewController {
             ninethButton.heightAnchor.constraint(equalToConstant: 50),
             ninethButton.leadingAnchor.constraint(equalTo: eighthButton.leadingAnchor, constant: 75),
             
-//            firstView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
-//            firstView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-//            firstView.widthAnchor.constraint(equalToConstant: 60),
-//            firstView.heightAnchor.constraint(equalToConstant: 60),
-            
-            firstLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
-            firstLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            
-//            secondLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 350),
-//            secondLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50)
-            
-//            secondLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
-//            secondLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
-            
-//            thirdLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
-//            thirdLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-//
-//            fourthLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
-//            fourthLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-//
-//            fifthLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
-//            fifthLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-//
-//            sixthLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
-//            sixthLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-//
-//            seventhLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
-//            seventhLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-//
-//            eightLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
-//            eightLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-//
-//            ninethLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
-//            ninethLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            firstLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 350),
+            firstLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
+
             
 
         ])
 
         self.view = view
 
-        self.starred = false
+//        self.starred = false
         updateView()
+        
 
     }
     @objc func updateView() {
         counter += 1
-        counterLabel.text = "Counter: \(counter)"
-        
-        
+        counterLabel.text = "Level: \(counter)"
+
+
     }
     
     
     @objc func updateFirstView(){
         firstLabel.text = "1"
     }
+    
     @objc func updateSecondView(){
         secondLabel.text = "2"
     }
@@ -291,17 +295,16 @@ class MyViewController : UIViewController {
     @objc func updateNinethView(){
         ninethLabel.text = "9"
     }
-    
 
-    @objc func toggleStarred() {
-        self.starred = !self.starred
-    }
-
-    var starred = false {
-        didSet {
-            starButton.tintColor = starred ? .orange : .gray
-        }
-    }
+//    @objc func toggleStarred() {
+//        self.starred = !self.starred
+//    }
+//
+//    var starred = false {
+//        didSet {
+//            starButton.tintColor = starred ? .orange : .gray
+//        }
+//    }
 }
 // Present the view controller in the Live View window
 PlaygroundPage.current.liveView = MyViewController()
