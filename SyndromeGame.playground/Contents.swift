@@ -62,7 +62,7 @@ class MyViewController : UIViewController {
         
         
         starButton = UIButton(type: .system)
-        starButton.setImage(UIImage(named: "hexagon"), for: .normal)
+        starButton.setImage(UIImage(named: "star"), for: .normal)
         starButton.addTarget(self, action: #selector(toggleStarred), for: .touchUpInside)
         
         plusButton = UIButton(type: .system)
@@ -70,40 +70,41 @@ class MyViewController : UIViewController {
         plusButton.addTarget(self, action: #selector(toggleStarred), for: .touchUpInside)
         
         firstButton = UIButton(type: .system)
-        firstButton.setImage(UIImage(named: "1.png"), for: .normal)
+        firstButton.setBackgroundImage(UIImage(named: "1.png"), for: .normal)
+//        firstButton.setImage(UIImage(named: "1.png"), for: .normal)
         firstButton.addTarget(self, action: #selector(updateFirstView), for: .touchUpInside)
         
 
         secondButton = UIButton(type: .system)
-        secondButton.setImage(UIImage(named: "2.png"), for: .normal)
+        secondButton.setBackgroundImage(UIImage(named: "2.png"), for: .normal)
         secondButton.addTarget(self, action: #selector(updateSecondView), for: .touchUpInside)
 
         thirdButton = UIButton(type: .system)
-        thirdButton.setImage(UIImage(named: "3.png"), for: .normal)
+        thirdButton.setBackgroundImage(UIImage(named: "3.png"), for: .normal)
         thirdButton.addTarget(self, action: #selector(updateThirdView), for: .touchUpInside)
 
         fouthButton = UIButton(type: .system)
-        fouthButton.setImage(UIImage(named: "4.png"), for: .normal)
+        fouthButton.setBackgroundImage(UIImage(named: "4.png"), for: .normal)
         fouthButton.addTarget(self, action: #selector(updateFourthView), for: .touchUpInside)
 
         fifthButton = UIButton(type: .system)
-        fifthButton.setImage(UIImage(named: "5.png"), for: .normal)
+        fifthButton.setBackgroundImage(UIImage(named: "5.png"), for: .normal)
         fifthButton.addTarget(self, action: #selector(updateFifthView), for: .touchUpInside)
 
         sixthButton = UIButton(type: .system)
-        sixthButton.setImage(UIImage(named: "6.png"), for: .normal)
+        sixthButton.setBackgroundImage(UIImage(named: "6.png"), for: .normal)
         sixthButton.addTarget(self, action: #selector(updateSixthView), for: .touchUpInside)
 
         seventhButton = UIButton(type: .system)
-        seventhButton.setImage(UIImage(named: "7.png"), for: .normal)
+        seventhButton.setBackgroundImage(UIImage(named: "7.png"), for: .normal)
         seventhButton.addTarget(self, action: #selector(updateSeventhView), for: .touchUpInside)
 
         eighthButton = UIButton(type: .system)
-        eighthButton.setImage(UIImage(named: "8.png"), for: .normal)
+        eighthButton.setBackgroundImage(UIImage(named: "8.png"), for: .normal)
         eighthButton.addTarget(self, action: #selector(updateEigthView), for: .touchUpInside)
 
         ninethButton = UIButton(type: .system)
-        ninethButton.setImage(UIImage(named: "9.png"), for: .normal)
+        ninethButton.setBackgroundImage(UIImage(named: "9.png"), for: .normal)
         ninethButton.addTarget(self, action: #selector(updateNinethView), for: .touchUpInside)
 
 
@@ -258,7 +259,11 @@ class MyViewController : UIViewController {
     @objc func updateView() {
         counter += 1
         counterLabel.text = "Counter: \(counter)"
+        
+        
     }
+    
+    
     @objc func updateFirstView(){
         firstLabel.text = "1"
     }
