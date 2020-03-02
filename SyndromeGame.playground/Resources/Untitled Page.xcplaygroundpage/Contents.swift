@@ -35,6 +35,8 @@ class MyViewController : UIViewController {
 
     var firstInputView : UIView!
     var secondInputView : UIView!
+    var resultLabel : UILabel!
+    var resultView : UIView!
     override func loadView() {
         // UI
         let view = UIView()
@@ -53,9 +55,13 @@ class MyViewController : UIViewController {
         ninethLabel = UILabel()
         
         questionLabel = UILabel()
-        questionLabel.text = "Given additional number equal to : 10"
+        questionLabel.text = "Given multiplication number equal to : 81"
+        
+        resultLabel = UILabel()
+        resultLabel.text = "Result"
         
         firstInputView = UIView()
+//        firstInputView.layer.cornerRadius = 10
         firstInputView.backgroundColor = .lightGray
         view.addSubview(firstInputView)
         
@@ -63,6 +69,9 @@ class MyViewController : UIViewController {
         secondInputView.backgroundColor = .lightGray
         view.addSubview(secondInputView)
         
+        resultView = UIView()
+        resultView.backgroundColor = .lightGray
+        view.addSubview(resultView)
 //        button = UIButton(type: .system)
 //        button.setTitle("Click Here", for: .normal)
 //        button.tintColor = .orange
@@ -139,6 +148,7 @@ class MyViewController : UIViewController {
     
 
         view.addSubview(firstLabel)
+        view.addSubview(resultLabel)
         
 
        
@@ -165,23 +175,33 @@ class MyViewController : UIViewController {
         
         firstInputView.translatesAutoresizingMaskIntoConstraints = false
         secondInputView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
+        resultLabel.translatesAutoresizingMaskIntoConstraints = false
+        resultView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
         
             questionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             questionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             
-            firstInputView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
-            firstInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
+            resultLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 310),
+            resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 165),
+            
+            firstInputView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
+            firstInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45   ),
             firstInputView.heightAnchor.constraint(equalToConstant: 120),
             firstInputView.widthAnchor.constraint(equalToConstant: 120),
             
-            secondInputView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
+            secondInputView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
             secondInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 210),
             secondInputView.heightAnchor.constraint(equalToConstant: 120),
             secondInputView.widthAnchor.constraint(equalToConstant: 120),
+            
+            resultView.topAnchor.constraint(equalTo: view.topAnchor, constant: 350),
+            resultView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
+            resultView.widthAnchor.constraint(equalToConstant: 285),
+            resultView.heightAnchor.constraint(equalToConstant: 120),
+            
+            
             
             backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -189,7 +209,7 @@ class MyViewController : UIViewController {
             backButton.heightAnchor.constraint(equalToConstant: 40),
         
             counterLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
-            counterLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 300),
+            counterLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 270),
 
 //            button.leadingAnchor.constraint(equalTo: counterLabel.trailingAnchor, constant: 20),
 //            button.firstBaselineAnchor.constraint(equalTo: counterLabel.firstBaselineAnchor),
