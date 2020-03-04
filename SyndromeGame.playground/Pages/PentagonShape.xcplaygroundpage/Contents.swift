@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import PlaygroundSupport
 
-class MySecondViewController : UIViewController{
+class MyPentagonViewController : UIViewController{
     var counter = 0
     var backButton : UIButton!
     
@@ -27,7 +27,7 @@ class MySecondViewController : UIViewController{
         backButton.setBackgroundImage(UIImage(named: "backButton.png"), for: .normal)
         
         questionLabel = UILabel()
-        questionLabel.text = "Choose the one of the given answer!"
+        questionLabel.text = "Choose one of the given answer below!"
         
         pentagonCenterView = UIButton(type: .system)
         pentagonCenterView.setBackgroundImage(UIImage(named: "pentagon"), for: .normal)
@@ -140,4 +140,4 @@ class MySecondViewController : UIViewController{
         counterLabel.text = "Level: \(counter)"
     }
 }
-PlaygroundPage.current.liveView = MySecondViewController()
+PlaygroundPage.current.liveView = MyPentagonViewController()

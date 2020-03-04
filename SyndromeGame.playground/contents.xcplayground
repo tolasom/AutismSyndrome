@@ -3,6 +3,11 @@
     <pages>
         <page name='MenuGame'/>
         <page name='FirstLevel'/>
-        <page name='SecondLevel'/>
+        <page name='PentagonShape'/>
+        <page name='CircleShape'/>
+        <page name='squareShape'/>
+        <page name='AnalogClockOne'/>
+        <page name='AnalogClockTwo'/>
+        <page name='AnalogClcokThree'/>
     </pages>
 </playground>
